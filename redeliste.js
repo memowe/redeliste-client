@@ -1,6 +1,13 @@
 new Vue({
     el: '#redeliste',
     data: {
-        persons: [{name: 'Foo'}]
+        newPerson: '',
+        persons: []
+    },
+    methods: {
+        addPerson: function () {
+            this.persons.push({name: this.newPerson});
+            this.newPerson = '';
+        }
     }
 })
