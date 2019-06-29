@@ -1,6 +1,6 @@
 new Vue({
     el: '#redeliste',
     data: {
-        hello: 'World!'
+        persons: [{name: 'Foo'}]
     }
 })

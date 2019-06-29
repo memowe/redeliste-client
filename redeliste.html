@@ -6,7 +6,9 @@
     </head>
     <body>
         <main id="redeliste">
-            <p>Hello {{hello}}</p>
+            <ul id="personen">
+                <li v-for="p in persons">{{ p.name }}</li>
+            </ul>
         </main>
         <footer>
             <hr><p>
