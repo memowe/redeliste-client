@@ -10,7 +10,11 @@
                 <h2>Personen</h2>
                 <ul id="personen">
                     <li v-for="p in sortedPersons">
-                        <button v-on:click="addSpeaker(p.id)">{{ p.name }}</button>
+                        <button
+                            v-bind:disabled="isDisabled(p.id)"
+                            v-on:click="addSpeaker(p.id)">
+                            {{ p.name }}
+                        </button>
                     </li>
                 </ul>
                 <p id="add-personen">
