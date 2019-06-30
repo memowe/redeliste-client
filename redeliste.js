@@ -20,5 +20,8 @@ new Vue({
             });
             this.newPerson = '';
         },
+        person: function (id) {
+            return this.persons.find(e => e.id == id);
+        }
     }
 })
