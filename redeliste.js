@@ -18,6 +18,10 @@ new Vue({
         nextSpeaker: function () {
             return this.speakerIDs.length == 0 ? null :
                 this.person(this.speakerIDs[0]);
+        },
+        followingSpeakers: function () {
+            if (this.speakers.length <= 1) return null;
+            return this.speakers.slice(1);
         }
     },
     methods: {

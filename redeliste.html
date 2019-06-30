@@ -26,10 +26,8 @@
                         {{ nextSpeaker.name }}
                     </button>
                 </h2>
-                <hr>
-                <p>Nächste Redner*innen</p>
-                <ul id="speakers">
-                    <li v-for="s in speakers">{{ s.name }}</li>
+                <ul id="following-speakers" v-if="followingSpeakers">
+                    <li v-for="s in followingSpeakers">{{ s.name }}</li>
                 </ul>
             </div>
         </main>
