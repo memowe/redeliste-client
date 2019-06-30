@@ -50,8 +50,7 @@ new Vue({
             return this.persons.find(e => e.id == id);
         },
         isDisabled: function (id) {
-            if (this.speakerIDs.length == 0) return false;
-            return this.speakerIDs[this.speakerIDs.length -1] == id;
+            return this.speakerIDs.includes(id);
         }
     }
 })
