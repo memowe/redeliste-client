@@ -18,7 +18,10 @@
             <div id="next-container" v-if="nextSpeaker">
                 <hr>
                 <p id="next">
-                    Nächste*r Redner*in: {{ nextSpeaker.name }}
+                    Nächste*r Redner*in:
+                    <button v-on:click="callNextSpeaker">
+                        {{ nextSpeaker.name }}
+                    </button>
                 </p>
             </div>
             <div id="speakers-container" v-if="speakers.length > 0">

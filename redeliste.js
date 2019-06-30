@@ -31,6 +31,9 @@ new Vue({
         addSpeaker: function (id) {
             this.speakerIDs.push(id);
         },
+        callNextSpeaker: function () {
+            this.speakerIDs.shift();
+        },
         person: function (id) {
             return this.persons.find(e => e.id == id);
         }
