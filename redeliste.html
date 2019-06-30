@@ -19,7 +19,7 @@
                     </li>
                 </ul>
                 <p id="add-personen">
-                    <input v-model="newPerson">
+                    <input v-model="newPerson" v-on:keyup.enter="addPerson">
                     <button v-on:click="addPerson">Hinzufügen</button>
                 </p>
             </div>
