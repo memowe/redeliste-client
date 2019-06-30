@@ -13,6 +13,13 @@
                 <input v-model="newPerson">
                 <button v-on:click="addPerson">Hinzufügen</button>
             </div>
+            <div id="speakers-container" v-if="speakers.length > 0">
+                <hr>
+                <h2>Nächste Redner*innen</h2>
+                <ul id="speakers">
+                    <li v-for="s in speakers">{{ s.name }}</li>
+                </ul>
+            </div>
         </main>
         <footer>
             <hr><p>

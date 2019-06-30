@@ -2,7 +2,8 @@ new Vue({
     el: '#redeliste',
     data: {
         newPerson: '',
-        persons: []
+        persons: [],
+        speakerIDs: []
     },
     computed: {
         sortedPersons: function () {
@@ -10,6 +11,9 @@ new Vue({
             return copy.sort(
                 (a,b) => a.name.localeCompare(b.name)
             );
+        },
+        speakers: function () {
+            return this.speakerIDs.map(this.person);
         }
     },
     methods: {
