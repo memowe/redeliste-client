@@ -28,14 +28,22 @@ new Vue({
         addPerson: function () {
             this.persons.push({
                 name:   this.newPerson,
-                id:     this.persons.length
+                id:     this.persons.length,
+                spoken: false,
             });
             this.newPerson = '';
         },
         addSpeaker: function (id) {
-            this.speakerIDs.push(id);
+            if (this.person(id).spoken) {
+                this.speakerIDs.push(id);
+            } else {
+                var i = this.speakerIDs.findIndex(id => this.person(id).spoken);
+                if (i == -1) i = this.speakerIDs.length;
+                this.speakerIDs.splice(i, 0, id);
+            }
         },
         callNextSpeaker: function () {
+            this.nextSpeaker.spoken = true;
             this.speakerIDs.shift();
         },
         person: function (id) {
