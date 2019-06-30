@@ -24,6 +24,9 @@ new Vue({
             });
             this.newPerson = '';
         },
+        addSpeaker: function (id) {
+            this.speakerIDs.push(id);
+        },
         person: function (id) {
             return this.persons.find(e => e.id == id);
         }

@@ -7,7 +7,9 @@
     <body>
         <main id="redeliste">
             <ul id="personen">
-                <li v-for="p in sortedPersons">{{ p.name }}</li>
+                <li v-for="p in sortedPersons">
+                    <button v-on:click="addSpeaker(p.id)">{{ p.name }}</button>
+                </li>
             </ul>
             <div id="add-personen">
                 <input v-model="newPerson">
