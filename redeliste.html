@@ -15,6 +15,12 @@
                 <input v-model="newPerson">
                 <button v-on:click="addPerson">Hinzufügen</button>
             </div>
+            <div id="next-container" v-if="nextSpeaker">
+                <hr>
+                <p id="next">
+                    Nächste*r Redner*in: {{ nextSpeaker.name }}
+                </p>
+            </div>
             <div id="speakers-container" v-if="speakers.length > 0">
                 <hr>
                 <h2>Nächste Redner*innen</h2>

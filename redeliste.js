@@ -14,6 +14,10 @@ new Vue({
         },
         speakers: function () {
             return this.speakerIDs.map(this.person);
+        },
+        nextSpeaker: function () {
+            return this.speakerIDs.length == 0 ? null :
+                this.person(this.speakerIDs[0]);
         }
     },
     methods: {
