@@ -11,6 +11,22 @@ Vue.component('person', {
     `
 })
 
+Vue.component('add-person', {
+    props: ['value'],
+    template: `
+        <p id="add-person">
+            <input
+                v-bind:value="value"
+                v-on:input="$emit('input', $event.target.value)"
+                v-on:keyup.enter="$emit('add-person')"
+            >
+            <button
+                v-on:click="$emit('add-person')"
+            >Hinzufügen</button>
+        </p>
+    `
+})
+
 new Vue({
     el: '#redeliste',
     data: {

@@ -17,10 +17,10 @@
                         v-on:add-speaker="addSpeaker(p.id)"
                     ><person>
                 </ul>
-                <p id="add-personen">
-                    <input v-model="newPerson" v-on:keyup.enter="addPerson">
-                    <button v-on:click="addPerson">Hinzufügen</button>
-                </p>
+                <add-person
+                    v-model="newPerson"
+                    v-on:add-person="addPerson"
+                >
             </section>
             <section id="speakers-container" v-if="nextSpeaker">
                 <hr>
