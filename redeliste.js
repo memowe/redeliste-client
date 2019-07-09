@@ -1,3 +1,16 @@
+Vue.component('person', {
+    props: ['person', 'disabled'],
+    template: `
+        <li><button
+            v-bind:disabled="disabled"
+            v-on:click="$emit('add-speaker')"
+        >
+            {{ person.name }}
+            <span v-if="!person.spoken">*</span>
+        </button></li>
+    `
+})
+
 new Vue({
     el: '#redeliste',
     data: {

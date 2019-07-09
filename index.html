@@ -10,14 +10,12 @@
             <section id="personen-container">
                 <h2>Personen</h2>
                 <ul id="personen">
-                    <li v-for="p in sortedPersons">
-                        <button
-                            v-bind:disabled="isDisabled(p.id)"
-                            v-on:click="addSpeaker(p.id)">
-                            {{ p.name }}
-                            <span v-if="!p.spoken">(E)</span>
-                        </button>
-                    </li>
+                    <person
+                        v-for="p in sortedPersons"
+                        v-bind:person="p"
+                        v-bind:disabled="isDisabled(p.id)"
+                        v-on:add-speaker="addSpeaker(p.id)"
+                    ><person>
                 </ul>
                 <p id="add-personen">
                     <input v-model="newPerson" v-on:keyup.enter="addPerson">
