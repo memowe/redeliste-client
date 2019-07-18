@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Redeliste</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skeleton-framework/skeleton-framework/dist/skeleton.css">
+        <script src="https://kit.fontawesome.com/02991c9553.js"></script>
         <style>
             #personen       {display: block; margin: 0; padding: 0}
             #personen li    {display: block; margin: 0; padding: 0}
@@ -24,6 +25,7 @@
                                     v-bind:class="{'button-primary': ! isDisabled(p.id)}"
                                     class="u-full-width">
                                     {{ p.name }}
+                                    <i v-if="! p.spoken" class="far fa-star"></i>
                                 </button>
                             </li>
                         </ul>
