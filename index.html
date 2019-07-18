@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Redeliste</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skeleton-framework/skeleton-framework/dist/skeleton.css">
+        <style>
+            #personen       {display: block; margin: 0; padding: 0}
+            #personen li    {display: block; margin: 0; padding: 0}
+        </style>
     </head>
     <body>
         <main id="redeliste">
@@ -14,9 +18,10 @@
                     <li v-for="p in sortedPersons">
                         <button
                             v-bind:disabled="isDisabled(p.id)"
-                            v-on:click="addSpeaker(p.id)">
+                            v-on:click="addSpeaker(p.id)"
+                            v-bind:class="{spoken: p.spoken, 'button-primary': ! p.spoken}"
+                            class="u-full-width">
                             {{ p.name }}
-                            <span v-if="!p.spoken">(E)</span>
                         </button>
                     </li>
                 </ul>
