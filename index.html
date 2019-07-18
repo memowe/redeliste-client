@@ -21,7 +21,7 @@
                                 <button
                                     v-bind:disabled="isDisabled(p.id)"
                                     v-on:click="addSpeaker(p.id)"
-                                    v-bind:class="{spoken: p.spoken, 'button-primary': ! p.spoken}"
+                                    v-bind:class="{'button-primary': ! isDisabled(p.id)}"
                                     class="u-full-width">
                                     {{ p.name }}
                                 </button>
