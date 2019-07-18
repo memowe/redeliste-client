@@ -7,8 +7,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skeleton-framework/skeleton-framework/dist/skeleton.css">
         <script src="https://kit.fontawesome.com/02991c9553.js"></script>
         <style>
-            #personen       {display: block; margin: 0; padding: 0}
-            #personen li    {display: block; margin: 0; padding: 0}
+            .personen       {display: block; margin: 0; padding: 0}
+            .personen li    {display: block; margin: 0; padding: 0}
         </style>
     </head>
     <body>
@@ -17,7 +17,7 @@
                 <div class="row">
                     <section id="personen-container" class="six columns">
                         <h2>Personen</h2>
-                        <ul id="personen">
+                        <ul id="personen" class="personen">
                             <li v-for="p in sortedPersons">
                                 <button
                                     v-bind:disabled="isDisabled(p.id)"
