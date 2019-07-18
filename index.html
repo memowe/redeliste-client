@@ -21,7 +21,7 @@
                     </li>
                 </ul>
                 <p id="add-personen">
-                    <input v-model="newPerson" v-on:keyup.enter="addPerson">
+                    <input v-model="newPerson" v-on:keyup.enter="addPerson" type="text">
                     <button
                         v-bind:disabled="newPerson.length == 0"
                         v-on:click="addPerson">
