@@ -57,13 +57,15 @@
                     </section>
                     <section id="speakers-container" class="six columns">
                         <h2>Redeliste</h2>
-                        <button class="button-primary u-full-width"
-                            v-if="nextSpeaker"
-                            v-on:click="callNextSpeaker">
-                            <i class="fas fa-check checker"></i>
-                            {{ nextSpeaker.name }}
-                            <i v-if="! nextSpeaker.spoken" class="fas fa-star"></i>
-                        </button>
+                        <div>
+                            <button class="button-primary u-full-width"
+                                v-if="nextSpeaker"
+                                v-on:click="callNextSpeaker">
+                                <i class="fas fa-check checker"></i>
+                                {{ nextSpeaker.name }}
+                                <i v-if="! nextSpeaker.spoken" class="fas fa-star"></i>
+                            </button>
+                        </div>
                         <p v-if="persons.length > 0 && ! nextSpeaker">Personen anklicken!</p>
                         <ul id="following-speakers" class="personen" v-if="followingSpeakers">
                             <li v-for="s in followingSpeakers">
