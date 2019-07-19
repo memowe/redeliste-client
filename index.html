@@ -7,10 +7,14 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skeleton-framework/skeleton-framework/dist/skeleton.css">
         <script src="https://kit.fontawesome.com/02991c9553.js"></script>
         <style>
-            .personen       {display: block; margin: 0; padding: 0}
-            .personen li    {display: block; margin: 0; padding: 0}
-            .fa-check       {font-size: 1.8em; margin-right: .5em}
-            .fa-star        {font-size: .7em; vertical-align: super}
+            .personen               {display: block; margin: 0; padding: 0}
+            .personen li            {display: block; margin: 0; padding: 0}
+            .fa-check               {font-size: 1.8em; margin-right: .5em}
+            .fa-star                {font-size: .7em; vertical-align: super}
+            #personen-container     {background-color: #e8f7ff}
+            #speakers-container     {background-color: #ffefdb}
+            button:disabled         {background-color: white}
+            #add-personen button    {background-color: #4a5d63; border: black}
         </style>
     </head>
     <body>
@@ -37,7 +41,8 @@
                                 v-on:keyup.enter="addPerson">
                             <button
                                 v-bind:disabled="newPerson.length == 0"
-                                v-on:click="addPerson">
+                                v-on:click="addPerson"
+                                class="button-primary">
                                 Hinzufügen
                             </button>
                         </div>
