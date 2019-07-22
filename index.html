@@ -21,7 +21,11 @@
                 </ul>
                 <p id="add-personen">
                     <input v-model="newPerson" v-on:keyup.enter="addPerson">
-                    <button v-on:click="addPerson">Hinzufügen</button>
+                    <button
+                        v-bind:disabled="newPerson.length == 0"
+                        v-on:click="addPerson">
+                        Hinzufügen
+                    </button>
                 </p>
             </section>
             <section id="speakers-container" v-if="nextSpeaker">

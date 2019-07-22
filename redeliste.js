@@ -26,12 +26,14 @@ new Vue({
     },
     methods: {
         addPerson: function () {
-            this.persons.push({
-                name:   this.newPerson,
-                id:     this.persons.length,
-                spoken: false,
-            });
-            this.newPerson = '';
+            if (this.newPerson.length > 0) {
+                this.persons.push({
+                    name:   this.newPerson,
+                    id:     this.persons.length,
+                    spoken: false,
+                });
+                this.newPerson = '';
+            }
         },
         addSpeaker: function (id) {
             if (this.person(id).spoken) {
