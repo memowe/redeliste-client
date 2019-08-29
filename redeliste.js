@@ -34,6 +34,7 @@ new Vue({
                     spoken: false,
                 });
                 this.newPerson = '';
+                this.writeToHistory();
             }
         },
         addSpeaker: function (id) {
@@ -44,10 +45,12 @@ new Vue({
                 if (i == -1) i = this.speakerIDs.length;
                 this.speakerIDs.splice(i, 0, id);
             }
+            this.writeToHistory();
         },
         callNextSpeaker: function () {
             this.nextSpeaker.spoken = true;
             this.speakerIDs.shift();
+            this.writeToHistory();
         },
         person: function (id) {
             return this.persons.find(e => e.id == id);
