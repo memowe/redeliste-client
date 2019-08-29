@@ -73,5 +73,13 @@ new Vue({
                 console.log(e);
             }
         }
+    },
+    created: function () {
+        if (location.hash) {
+            this.readFromString(window.location.hash.substring(1));
+        }
+        else {
+            this.writeToHistory();
+        }
     }
 })
