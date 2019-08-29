@@ -75,11 +75,20 @@ new Vue({
         }
     },
     created: function () {
+
+        // Synchronize state and location
         if (location.hash) {
             this.readFromString(window.location.hash.substring(1));
         }
         else {
             this.writeToHistory();
         }
+
+        // "Enable back button"
+        let v = this;
+        window.onpopstate = function (e) {
+            v.persons       = e.state.persons;
+            v.speakerIDs    = e.state.speakerIDs;
+        };
     }
 })
