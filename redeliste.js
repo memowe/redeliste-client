@@ -54,6 +54,21 @@ new Vue({
         },
         isDisabled: function (id) {
             return this.speakerIDs.includes(id);
+        },
+        writeToHistory: function () {
+            let data = {persons: this.persons, speakerIDs: this.speakerIDs};
+            history.pushState(data, document.title, '#' + this.serialize(data));
+        },
+        readFromString: function (str) {
+            try {
+                let data = this.deserialize(str);
+                this.persons    = data.persons;
+                this.speakerIDs = data.speakerIDs;
+            }
+            catch (e) {
+                alert("Fehler beim Laden!");
+                console.log(e);
+            }
         }
     }
 })
