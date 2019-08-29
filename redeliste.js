@@ -1,4 +1,5 @@
 new Vue({
+    mixins: [serializer],
     el: '#redeliste',
     data: {
         newPerson: '',
@@ -33,6 +34,7 @@ new Vue({
                     spoken: false,
                 });
                 this.newPerson = '';
+                this.writeToHistory();
             }
         },
         addSpeaker: function (id) {
@@ -43,16 +45,50 @@ new Vue({
                 if (i == -1) i = this.speakerIDs.length;
                 this.speakerIDs.splice(i, 0, id);
             }
+            this.writeToHistory();
         },
         callNextSpeaker: function () {
             this.nextSpeaker.spoken = true;
             this.speakerIDs.shift();
+            this.writeToHistory();
         },
         person: function (id) {
             return this.persons.find(e => e.id == id);
         },
         isDisabled: function (id) {
             return this.speakerIDs.includes(id);
+        },
+        writeToHistory: function () {
+            let data = {persons: this.persons, speakerIDs: this.speakerIDs};
+            history.pushState(data, document.title, '#' + this.serialize(data));
+        },
+        readFromString: function (str) {
+            try {
+                let data = this.deserialize(str);
+                this.persons    = data.persons;
+                this.speakerIDs = data.speakerIDs;
+            }
+            catch (e) {
+                alert("Fehler beim Laden!");
+                console.log(e);
+            }
         }
+    },
+    created: function () {
+
+        // Synchronize state and location
+        if (location.hash) {
+            this.readFromString(window.location.hash.substring(1));
+        }
+        else {
+            this.writeToHistory();
+        }
+
+        // "Enable back button"
+        let v = this;
+        window.onpopstate = function (e) {
+            v.persons       = e.state.persons;
+            v.speakerIDs    = e.state.speakerIDs;
+        };
     }
 })
