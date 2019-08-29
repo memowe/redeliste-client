@@ -1,4 +1,5 @@
 new Vue({
+    mixins: [serializer],
     el: '#redeliste',
     data: {
         newPerson: '',
