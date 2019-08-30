@@ -77,6 +77,24 @@
                         </ul>
                     </section>
                 </div>
+                <div class="row">
+                    <section id="destrutive-buttons" class="twelve columns">
+                        <button
+                            v-if="isClearable"
+                            v-on:click="clearSpeakers"
+                            class="u-pull-left">
+                            <i class="fas fa-forward"></i>
+                            Nächster TOP
+                        </button>
+                        <button
+                            v-if="! isNew"
+                            v-on:click="clearAll"
+                            class="u-pull-right">
+                            <i class="fas fa-trash-alt"></i>
+                            Alles zurücksetzen
+                        </button>
+                    </section>
+                </div>
             </div>
         </main>
         <footer>

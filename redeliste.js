@@ -23,6 +23,13 @@ new Vue({
         followingSpeakers: function () {
             if (this.speakers.length <= 1) return null;
             return this.speakers.slice(1);
+        },
+        isClearable: function () {
+            return  this.persons.some(p => p.spoken == true)
+                &&  this.speakerIDs.length == 0;
+        },
+        isNew: function () {
+            return this.persons.length == 0;
         }
     },
     methods: {
@@ -57,6 +64,17 @@ new Vue({
         },
         isDisabled: function (id) {
             return this.speakerIDs.includes(id);
+        },
+        clearSpeakers: function () {
+            this.persons.forEach(p => p.spoken = false);
+            this.speakerIDs = [];
+            this.writeToHistory();
+        },
+        clearAll: function () {
+            if (confirm("Alles löschen: im Ernst!?")) {
+                this.persons = [];
+                this.clearSpeakers();
+            }
         },
         writeToHistory: function () {
             let data = {persons: this.persons, speakerIDs: this.speakerIDs};
