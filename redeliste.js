@@ -23,6 +23,10 @@ new Vue({
         followingSpeakers: function () {
             if (this.speakers.length <= 1) return null;
             return this.speakers.slice(1);
+        },
+        isClearable: function () {
+            return  this.persons.some(p => p.spoken == true)
+                &&  this.speakerIDs.length == 0;
         }
     },
     methods: {
