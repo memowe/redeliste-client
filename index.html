@@ -22,6 +22,7 @@
             #redeliste section > *      {margin-left: .6rem; margin-right: .6rem}
             button:disabled             {background-color: white}
             #add-personen button        {background-color: #4a5d63; border: black}
+            #share-dialog-url           {width: 20rem}
         </style>
     </head>
     <body>
@@ -93,9 +94,33 @@
                             <i class="fas fa-trash-alt"></i>
                             Alles zurücksetzen
                         </button>
+                        <button
+                            v-on:click="showShareDialog"
+                            class="u-pull-right">
+                            <i class="fas fa-share-square"></i>
+                            Klon teilen
+                        </button>
                     </section>
                 </div>
             </div>
+            <dialog id="share-dialog">
+                <p class="u-pull-left">URL zum Teilen:</p>
+                <a  href="#"
+                    v-on:click.prevent="closeShareDialog"
+                    class="u-pull-right">
+                    <i class="fas fa-times"></i>
+                </a>
+                <input id="share-dialog-url" type="text"
+                    class="u-cf"
+                    v-model="currentURL()">
+                <button
+                    v-on:click="copyURL"
+                    class="button-primary">
+                    <i v-if="! copyIndicator" class="fas fa-copy"></i>
+                    <i v-if="  copyIndicator" class="fas fa-clipboard-check"></i>
+                    Kopieren
+                </button>
+            </dialog>
         </main>
         <footer>
             <hr><p>

@@ -4,7 +4,8 @@ new Vue({
     data: {
         newPerson: '',
         persons: [],
-        speakerIDs: []
+        speakerIDs: [],
+        copyIndicator: false
     },
     computed: {
         sortedPersons: function () {
@@ -64,6 +65,28 @@ new Vue({
         },
         isDisabled: function (id) {
             return this.speakerIDs.includes(id);
+        },
+        currentURL: function () {
+            return window.location.href;
+        },
+        shareDialog: function () {
+            return document.getElementById('share-dialog');
+        },
+        shareDialogInput: function () {
+            return this.shareDialog().querySelector('input');
+        },
+        copyURL: function () {
+            this.shareDialogInput().select();
+            document.execCommand('copy');
+            this.copyIndicator = true;
+        },
+        showShareDialog: function () {
+            this.copyIndicator = false;
+            this.shareDialog().showModal();
+            this.shareDialogInput().select();
+        },
+        closeShareDialog: function () {
+            document.getElementById('share-dialog').close();
         },
         clearSpeakers: function () {
             this.persons.forEach(p => p.spoken = false);
