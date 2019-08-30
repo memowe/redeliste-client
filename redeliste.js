@@ -94,7 +94,7 @@ new Vue({
             this.writeToHistory();
         },
         clearAll: function () {
-            if (confirm("Alles löschen: im Ernst!?")) {
+            if (confirm("Alles löschen: dein Ernst!?")) {
                 this.persons = [];
                 this.clearSpeakers();
             }
