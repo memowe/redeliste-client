@@ -79,7 +79,11 @@
                 </div>
                 <div class="row">
                     <section id="destrutive-buttons" class="twelve columns u-text-right">
-                        <button v-if="isClearable">Nächster TOP</button>
+                        <button
+                            v-if="isClearable"
+                            v-on:click="clearSpeakers">
+                            Nächster TOP
+                        </button>
                     </section>
                 </div>
             </div>

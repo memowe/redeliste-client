@@ -62,6 +62,11 @@ new Vue({
         isDisabled: function (id) {
             return this.speakerIDs.includes(id);
         },
+        clearSpeakers: function () {
+            this.persons.forEach(p => p.spoken = false);
+            this.speakerIDs = [];
+            this.writeToHistory();
+        },
         writeToHistory: function () {
             let data = {persons: this.persons, speakerIDs: this.speakerIDs};
             history.pushState(data, document.title, '#' + this.serialize(data));
