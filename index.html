@@ -45,13 +45,9 @@
                             </li>
                         </ul>
                         <div id="add-personen">
-                            <input type="text"
-                                v-model="newPerson"
+                            <input id="add-personen-name" type="text"
                                 v-on:keyup.enter="addPerson">
-                            <button
-                                v-bind:disabled="newPerson.length == 0"
-                                v-on:click="addPerson"
-                                class="button-primary">
+                            <button v-on:click="addPerson" class="button-primary">
                                 Hinzufügen
                             </button>
                         </div>

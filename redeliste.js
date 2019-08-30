@@ -2,7 +2,6 @@ new Vue({
     mixins: [serializer],
     el: '#redeliste',
     data: {
-        newPerson: '',
         persons: [],
         speakerIDs: [],
         copyIndicator: false
@@ -35,15 +34,22 @@ new Vue({
     },
     methods: {
         addPerson: function () {
-            if (this.newPerson.length > 0) {
+            let name = this.newPersonName();
+            if (name.length > 0) {
                 this.persons.push({
-                    name:   this.newPerson,
+                    name:   name,
                     id:     this.persons.length,
                     spoken: false,
                 });
-                this.newPerson = '';
+                this.newPersonNameElement().value = '';
                 this.writeToHistory();
             }
+        },
+        newPersonNameElement: function () {
+            return document.getElementById('add-personen-name');
+        },
+        newPersonName: function () {
+            return this.newPersonNameElement().value;
         },
         addSpeaker: function (id) {
             if (this.person(id).spoken) {
